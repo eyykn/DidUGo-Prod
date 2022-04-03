@@ -1,0 +1,61 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Attendance {
+  id      Int     @id @default(autoincrement())
+  classDate DateTime
+  status  String
+  reason  String?
+  class   Class?  @relation(fields: [classId], references: [id])
+  classId Int?
+  user           User?        @relation(fields: [userId], references: [id])
+  userId         String?
+}
+
+model ReflectionReview {
+  id      Int    @id @default(autoincrement())
+  classDate DateTime
+  title   String
+  refContent String?
+  revContent String?
+  class   Class? @relation(fields: [classId], references: [id])
+  classId Int?
+  user           User?        @relation(fields: [userId], references: [id])
+  userId         String?
+}
+
+model Class {
+  id             Int          @id @default(autoincrement())
+  courseCode     String
+  courseName     String
+  courseLocation String
+  dateStart      DateTime
+  dateEnd        DateTime
+  daySlot        String
+  timeStart      String
+  timeEnd        String
+  grade          Float
+  user           User?        @relation(fields: [userId], references: [id])
+  userId         String?
+  attendanceRec  Attendance[]
+  refNrevRec     ReflectionReview[]
+}
+
+// User model eferenced from supabase docs https://supabase.com/docs/guides/integrations/prisma
+model User {
+  id      String  @id
+  email   String  @unique
+  name    String?
+  classes Class[]
+  attendanceRec  Attendance[]
+  refNrevRec     ReflectionReview[]
+}
