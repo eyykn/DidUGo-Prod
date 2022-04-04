@@ -74,7 +74,7 @@ const getDates = (datestart: Date, dateend: Date, daySlot: string): Date[] => {
   if (daySlot.length > 3) {
     days.push(daysOfWeek[daySlot.substring(3)]);
   }
-  while (currDate < endDate) {
+  while (currDate <= endDate) {
     if (days.includes(currDate.getDay())) {
       dates.push(currDate);
     }

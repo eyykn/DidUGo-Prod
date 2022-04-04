@@ -87,6 +87,15 @@ export class ClassService {
     });
   }
 
+  //Function retrieves all class records from the Class table of the DB that are asscoiated with the input user id
+  async getAllClasses(userid: string): Promise<Class[]> {
+    return this.prisma.class.findMany({
+      where: {
+        userId: userid,
+      },
+    });
+  }
+
   //Function retrieves all review and reflection records rom the Class table of the DB that are asscoiated with the input user id
   async getAllClassesRecords(userid: string): Promise<Class[]> {
     return this.prisma.class.findMany({

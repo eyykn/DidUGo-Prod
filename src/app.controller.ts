@@ -208,10 +208,20 @@ export class AppController {
       date: Date;
     },
   ) {
-    const userClasses = await this.classService.getClasses(
+    const currUserClasses = await this.classService.getClasses(
       classData.userid,
       classData.date,
     );
+    return res.status(HttpStatus.OK).json({
+      message: 'Classes found successfully!',
+      currUserClasses,
+    });
+  }
+
+  // Get all user classes
+  @Get('/:userid/classes')
+  async getAllClasses(@Param('userid') userid, @Res() res) {
+    const userClasses = await this.classService.getAllClasses(userid);
     return res.status(HttpStatus.OK).json({
       message: 'Classes found successfully!',
       userClasses,
