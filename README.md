@@ -1,8 +1,18 @@
 # DidUGo
 
-This is the official production repo of the "DidUGo?" productivity application. 
+This is the production repo of the "DidUGo?". 
+
+## **What "DidUGo?" is:**
+
+"DidUGo?" is a productivity application. 
+
+This web application allows students to keep track of their courses and course attendance. Regarding their course attendance students can view reasons behind their absences, most common lecture missed (to make necessary adjustments to avoid an absence) and most common days missed. Students can also write reflections as to how they felt during the class (a reminder to motivate them for next class), and a little summary as to where they left of last class (reviews) to serve as a little refresher before class. The web app also provides rewards for attendance in the forms of medals or achievements for self-encouragement purposes. At the end of semesters students can enter their final course grade and see how their final coruse grade compares to their average all time grade. HEre students can also see how their overall all time attendance average compares to their course attendance average.
+
+## **Where you can find "DidUGo?":**
 
 You can find "DidUGo?" application live at: https://didugo.herokuapp.com/
+
+## **How to use "DidUGo?":**
 
 To start click the "Register" button on the landing page to make an account:
 <img width="1296" alt="Screen Shot 2022-04-03 at 7 28 37 PM" src="https://user-images.githubusercontent.com/61576902/161453553-66690519-6ced-4b4e-aac6-d7c213eb2e16.png">
@@ -110,6 +120,7 @@ You can hover over the chart to see a close-up of the information displayed:
 Click the application logo from the side navigation to go to the home page: 
 <img width="1420" alt="Screen Shot 2022-04-03 at 8 10 39 PM" src="https://user-images.githubusercontent.com/61576902/161455185-14a7b121-df01-49eb-a9dd-b98a46a2e27d.png">
 
+## **Contributing:**
 
-
+No contributions at this time please, thank you!
 
