@@ -26,7 +26,6 @@ export class UserService {
       email_confirm: true,
     });
     if (error) {
-      console.log('reg', error);
       throw new HttpException(
         {
           status: error.status,
@@ -53,7 +52,6 @@ export class UserService {
       password: userPass,
     });
     if (error) {
-      console.log('login', error);
       throw new HttpException(
         {
           status: error.status,

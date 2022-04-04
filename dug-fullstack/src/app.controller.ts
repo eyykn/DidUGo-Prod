@@ -83,7 +83,6 @@ export class AppController {
   // Resets a user's information (all class, attendance and reflection records are deleted)
   @Get('/:userid/reset')
   async resetUserInfo(@Param('userid') userid, @Res() res) {
-    console.log('Called reset');
     await this.classService.deleteClassesByUser(userid);
     await this.attendanceService.deleteAttendancesByUser(userid);
     await this.refNrevService.deleteRecordsByUser(userid);
@@ -421,7 +420,6 @@ export class AppController {
     @Body()
     dateCountData: { classes: ClassAttendanceObj[] },
   ) {
-    console.log('Called getDayCounts', dateCountData.classes);
     const dateCountsDay = [] as DateCountsObj[];
     const dateCountsWeek = [] as DateWeekCountsObj[];
     const dateCountsMonth = [] as DateMonthCountsObj[];
