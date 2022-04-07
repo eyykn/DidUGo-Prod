@@ -26,7 +26,7 @@ Fill in all fields and press "Submit" to create your account. You will then be r
 After you successfully login you will be redirected to the  "DidUGo?" home page:
 <img width="1436" alt="Screen Shot 2022-04-03 at 7 31 03 PM" src="https://user-images.githubusercontent.com/61576902/161453597-1468d823-4aab-4f50-be17-a44f1b651626.png">
 
-You can click any of the icons here to navigate to the application: 
+You can click any of the icons here to navigate within the application: 
 <img width="1282" alt="Screen Shot 2022-04-03 at 7 32 25 PM" src="https://user-images.githubusercontent.com/61576902/161453700-bc98d2a4-3cf8-430f-8ee4-9ab14edf6ea2.png">
 
 You can also click any of the icons on the side menu (found on the left hand side of the screen) to do the same:
