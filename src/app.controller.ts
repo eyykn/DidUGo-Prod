@@ -72,7 +72,7 @@ export class AppController {
   }
 
   //Logs user out
-  @Post('/logout')
+  @Get('/logout')
   async userLogout(@Res() res) {
     await this.userService.userLogout();
     return res.status(HttpStatus.OK).json({
