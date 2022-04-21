@@ -16,13 +16,13 @@ interface AttendanceObj {
 }
 
 interface DateCountsObj {
-  classDate: Date;
+  classDate: string;
   classCount: number;
   yesCount: number;
 }
 
 interface DateWeekCountsObj {
-  classDates: Date[];
+  classDates: string[];
   classCount: number;
   yesCount: number;
 }
@@ -103,6 +103,13 @@ const getWeekRange = (currDate: Date): Date[] => {
   return dates;
 };
 
+// Function maps an array of dates array of date strings
+const getMappedWeek = (dates: Date[]): string[] => {
+  return dates.map((cD) => {
+    return new Date(cD).toDateString();
+  });
+};
+
 export type {
   AttendanceObj,
   MostMissedObj,
@@ -111,4 +118,4 @@ export type {
   DateMonthCountsObj,
   ClassAttendanceObj,
 };
-export { getDates, getWeekRange };
+export { getDates, getWeekRange, getMappedWeek };

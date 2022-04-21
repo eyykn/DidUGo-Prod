@@ -14,6 +14,7 @@ import { AttendanceService } from './attendance.service';
 import { RefNRevService } from './refNrev.service';
 import {
   getWeekRange,
+  getMappedWeek,
   DateCountsObj,
   DateWeekCountsObj,
   DateMonthCountsObj,
@@ -441,12 +442,13 @@ export class AppController {
           const currDate = new Date(att.classDate);
           // Day handling
           let index = dateCountsDay.findIndex(
-            ({ classDate }) => classDate === att.classDate,
+            ({ classDate }) =>
+              new Date(classDate).toDateString() === currDate.toDateString(),
           );
           if (index !== -1) dateCountsDay[index].classCount += 1;
           else
             dateCountsDay.push({
-              classDate: att.classDate,
+              classDate: currDate.toDateString(),
               classCount: 1,
               yesCount: 0,
             });
@@ -465,7 +467,7 @@ export class AppController {
             });
 
           //Week handling
-          const week = getWeekRange(att.classDate);
+          const week = getMappedWeek(getWeekRange(att.classDate));
           const inDateCountsWeek = dateCountsWeek.filter(({ classDates }) =>
             isEqual(classDates, week),
           ).length;
@@ -477,7 +479,10 @@ export class AppController {
             });
           } else {
             const dayIndex = dateCountsWeek.findIndex(({ classDates }) =>
-              isEqual(classDates[currDate.getDay() - 1], currDate),
+              isEqual(
+                classDates[currDate.getDay() - 1],
+                currDate.toDateString(),
+              ),
             );
             if (dayIndex !== -1) {
               dateCountsWeek[dayIndex].classCount += 1;
@@ -489,7 +494,7 @@ export class AppController {
 
           if (att.status === 'Yes') {
             index = dateCountsDay.findIndex(
-              ({ classDate }) => classDate === att.classDate,
+              ({ classDate }) => classDate === currDate.toDateString(),
             );
             dateCountsDay[index].yesCount += 1;
             monthIndex = dateCountsMonth.findIndex(
