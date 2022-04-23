@@ -155,6 +155,7 @@ export class AppController {
       dayslot: string;
       timestart: string;
       timeend: string;
+      grade: number;
       userid: string;
     },
   ) {
@@ -168,6 +169,7 @@ export class AppController {
       classData.dayslot,
       classData.timestart,
       classData.timeend,
+      classData.grade,
       classData.userid,
     );
     await this.classService.updateClassAttendances(

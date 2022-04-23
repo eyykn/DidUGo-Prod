@@ -377,6 +377,7 @@ export class ClassService {
     dayslot: string,
     timestart: string,
     timeend: string,
+    grade: number,
     userid: string,
   ): Promise<Class> {
     return this.prisma.class.update({
@@ -392,7 +393,7 @@ export class ClassService {
         daySlot: dayslot,
         timeStart: timestart,
         timeEnd: timeend,
-        grade: 0,
+        grade: grade,
         userId: userid,
       },
     });
