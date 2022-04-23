@@ -474,8 +474,8 @@ export class AppController {
           if (inDateCountsWeek === 0) {
             dateCountsWeek.push({
               classDates: week,
-              classCount: 0,
-              yesCount: 0,
+              classCount: 1,
+              yesCount: att.status === 'Yes' ? 1 : 0,
             });
           } else {
             const dayIndex = dateCountsWeek.findIndex(({ classDates }) =>
